@@ -60,16 +60,11 @@ const getDivisors = (n) => {
     acum *= (sum + 1);
     return acum;
 }
-// 76576500
-// 842161320
-// let n  = 842161320;
-// console.log(getDivisors(76576500));
-// console.log(getFactors(76576500));
 
 let i = 1;
 let sum = i;
 let div = getDivisors(sum);
-while (div <= 500) {
+while (div <= 500) {    
     i++;
     sum += i;
     div = getDivisors(sum);

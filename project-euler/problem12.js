@@ -11,3 +11,32 @@
 // Which starting number, under one million, produces the longest chain?
 
 // NOTE: Once the chain starts the terms are allowed to go above one million.
+
+const dealEven = (n) => {
+    return n / 2;
+}
+
+const dealOdd = (n) => {
+    return 3 * n + 1;
+}
+
+const dealNumber = (n) => {
+    return n % 2 == 0 ? dealEven(n) : dealOdd(n);
+}
+
+const getChain = (n) => {
+    if (n == 1) return [n];
+    return [n].concat(getChain(dealNumber(n)));
+}
+
+let limit = 1000000;
+let lengths = [];
+let max = [0,0];
+for (let i = 1; i < limit; i++) {
+    let chainLength = getChain(i).length;
+    if(chainLength > max[1]){
+        max = [i,chainLength];
+    }
+}
+
+console.log(max);
